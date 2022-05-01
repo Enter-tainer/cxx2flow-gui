@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import Split from 'split.js'
 import CodeEditor from './CodeEditor.vue'
 import DotRenderer from './DotRenderer.vue'
