@@ -1,24 +1,5 @@
 # cxx2flow-gui
 
-## Project setup
-```
-yarn install
-```
+GUI for [cxx2flow](https://github.com/Enter-tainer/cxx2flow).
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![](assets/2022-05-01-16-37-32.png)
