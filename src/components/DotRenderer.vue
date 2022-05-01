@@ -1,6 +1,9 @@
 <template>
   <div class="fa">
-    <img :src="img" id="img" />
+    <img :src="img" id="img" v-if="code.length !== 0 && !hasError"/>
+    <div v-if="hasError">
+      {{ errorMessage }}
+    </div>
   </div>
 </template>
 
@@ -9,7 +12,9 @@ import { graphviz, wasmFolder } from '@hpcc-js/wasm'
 import { defineProps, onMounted, ref, watch, computed } from 'vue'
 
 const props = defineProps<{
-  code: string
+  code: string,
+  hasError: boolean,
+  errorMessage: string
 }>()
 const svg = ref<string>('')
 const update = async () => {
@@ -37,9 +42,12 @@ const img = computed(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 90vh;
+  width: 100%;
 }
 
 #img {
-  margin: 0 auto;
+  height: 100%;
+  object-fit: scale-down;
 }
 </style>

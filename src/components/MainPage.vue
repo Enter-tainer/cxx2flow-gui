@@ -1,7 +1,7 @@
 <template>
   <div class="split">
     <CodeEditor id="split-0" v-model:code="code"></CodeEditor>
-    <DotRenderer id="split-1" :code="dotCode"></DotRenderer>
+    <DotRenderer id="split-1" :code="dotCode" :error-message="errorMessage" :has-error="hasError"></DotRenderer>
   </div>
 </template>
 
@@ -26,12 +26,22 @@ int main() {
 `.trimStart()
 )
 const dotCode = ref<string>('')
-watch(code, () => {
-  // console.log(code.value)
+const errorMessage = ref<string>('')
+const hasError = ref<boolean>(false)
+const update = async () => {
+  try {
+    dotCode.value = await generateGraphviz(code.value)
+    hasError.value = false
+  } catch (e) {
+    hasError.value = true
+    errorMessage.value = String(e)
+  }
+}
+onMounted(() => {
+  update()
 })
-
 throttledWatch(code, async () => {
-  dotCode.value = await generateGraphviz(code.value)
+  update()
 }, { throttle: 500 })
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <CodeMirror v-model:value="codeData" :options="cmOptions" border :height="height - 100" class="editor">
+  <CodeMirror v-model:value="codeData" :options="cmOptions" border :height="height - 24" class="editor">
 
   </CodeMirror>
 </template>
@@ -30,6 +30,7 @@ const cmOptions = {
 </script>
 <style scoped>
 .editor:deep(.CodeMirror) {
+  font-size: 14px;
   font-family: Fira Code, JetBrains Mono, Consolas, monospace !important;
 }
 </style>
