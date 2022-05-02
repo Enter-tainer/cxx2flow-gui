@@ -30,6 +30,7 @@ jobs:
     - name: install app dependencies and build it
       run: yarn && yarn tauri:build
     - uses: tauri-apps/tauri-action@v0
+      if: startsWith(github.ref, 'refs/tags/')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
