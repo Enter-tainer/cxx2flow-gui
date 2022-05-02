@@ -64,7 +64,7 @@ checksum = "08f9b8508dccb7687a1d6c4ce66b2b0ecef467c94667de27d8d7fe1f8d2a9cdc"
 
 [[package]]
 name = "app"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "cxx2flow",
  "serde",
@@ -652,9 +652,9 @@ checksum = "b365fabc795046672053e29c954733ec3b05e4be654ab130fe8f1f94d7051f35"
 
 [[package]]
 name = "cxx2flow"
-version = "0.5.8"
+version = "0.5.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c98cd6ba55502eeac97ea16c1cf8da6b7073cdfb2f827616678be7e33c062095"
+checksum = "a8ddc4a625bd48ae1004f209d70fc7b8f9d91c915c8803a9dcb63c2a78a16103"
 dependencies = [
  "clap",
  "enum_dispatch",
