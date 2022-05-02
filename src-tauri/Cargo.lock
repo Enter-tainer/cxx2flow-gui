@@ -652,9 +652,9 @@ checksum = "b365fabc795046672053e29c954733ec3b05e4be654ab130fe8f1f94d7051f35"
 
 [[package]]
 name = "cxx2flow"
-version = "0.5.7"
+version = "0.5.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3e5ee2069ff71c56fd89f77750cf7aaeb6693d4152c5ab510aa9fbba21776e3a"
+checksum = "c98cd6ba55502eeac97ea16c1cf8da6b7073cdfb2f827616678be7e33c062095"
 dependencies = [
  "clap",
  "enum_dispatch",
