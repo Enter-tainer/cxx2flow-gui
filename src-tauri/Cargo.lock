@@ -604,9 +604,9 @@ dependencies = [
 
 [[package]]
 name = "cxx2flow"
-version = "0.5.11"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4ffa0c68210d7f129d9a5d7e8f8d59b5b4b534a42e87f45f480fb475b08d476"
+checksum = "84bccd745af90b36d9d84722fd073b965c8bf8a11684e99847982ed833b4271e"
 dependencies = [
  "clap",
  "colored",

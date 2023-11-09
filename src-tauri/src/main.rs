@@ -1,14 +1,13 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+use cxx2flow::display::dot::Dot;
+
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn generate_graphviz(code: String) -> Result<String, String> {
-    let res = cxx2flow::generate(code.as_bytes(), "", None, true, false);
-    match res {
-        Ok(res) => Ok(res),
-        Err(err) => Err(err.to_string()),
-    }
+    let res = cxx2flow::generate(code.as_bytes(), "", None, Dot);
+    res.map_err(|e| e.to_string())
 }
 
 fn main() {
