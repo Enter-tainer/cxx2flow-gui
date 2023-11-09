@@ -1,15 +1,22 @@
 {
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist"
+  },
   "package": {
     "productName": "cxx2flow-gui",
     "version": "0.1.5"
   },
-  "build": {
-    "distDir": "../dist",
-    "devPath": "http://localhost:3000",
-    "beforeDevCommand": "yarn dev",
-    "beforeBuildCommand": "yarn build"
-  },
   "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true
+      }
+    },
     "bundle": {
       "active": true,
       "targets": "all",
@@ -20,46 +27,19 @@
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ],
-      "resources": [],
-      "externalBin": [],
-      "copyright": "",
-      "category": "DeveloperTool",
-      "shortDescription": "",
-      "longDescription": "",
-      "deb": {
-        "depends": []
-      },
-      "macOS": {
-        "frameworks": [],
-        "exceptionDomain": "",
-        "signingIdentity": null,
-        "providerShortName": null,
-        "entitlements": null
-      },
-      "windows": {
-        "certificateThumbprint": null,
-        "digestAlgorithm": "sha256",
-        "timestampUrl": ""
-      }
+      ]
     },
-    "updater": {
-      "active": false
-    },
-    "allowlist": {
-      "all": true
+    "security": {
+      "csp": null
     },
     "windows": [
       {
-        "title": "cxx2flow",
-        "width": 800,
-        "height": 600,
+        "fullscreen": false,
         "resizable": true,
-        "fullscreen": false
+        "title": "cxx2flow-gui",
+        "width": 800,
+        "height": 600
       }
-    ],
-    "security": {
-      "csp": null
-    }
+    ]
   }
 }

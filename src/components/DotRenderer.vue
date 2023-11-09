@@ -1,45 +1,49 @@
 <template>
-  <div class="wrapper">
-    <div class="container">
-      <img :src="img" id="img" v-if="code.length !== 0 && !hasError" />
-      <div v-if="hasError">
-        {{ errorMessage }}
-      </div>
+  <div class="container">
+    <img :src="img" v-if="code.length !== 0 && !hasError" />
+    <div v-if="hasError">
+      {{ errorMessage }}
     </div>
-    <button @click="saveSVG(svg)" class="float-btn">
-      Save
-    </button>
+    <button @click="saveSVG(svg)" class="float-btn">Save</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { graphviz, wasmFolder } from '@hpcc-js/wasm'
-import { defineProps, onMounted, ref, watch, computed } from 'vue'
-import { saveSVG } from './bridge'
+import { Graphviz } from "@hpcc-js/wasm/graphviz";
+import { onMounted, ref, watch, computed, type Ref } from "vue";
+import { saveSVG } from "./bridge";
+
 const props = defineProps<{
-  code: string,
-  hasError: boolean,
-  errorMessage: string
-}>()
-const svg = ref<string>('')
+  code: string;
+  hasError: boolean;
+  errorMessage: string;
+}>();
+
+const svg: Ref<string> = ref("");
+const graphviz = ref();
+
 const update = async () => {
   try {
-    const res = await graphviz.dot(props.code)
-    svg.value = res
+    if (graphviz.value) {
+      svg.value = await graphviz.value.dot(props.code);
+    }
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
-}
+};
+
 onMounted(async () => {
-  wasmFolder('/')
-  await update()
-})
+  graphviz.value = await Graphviz.load();
+  await update();
+});
+
 watch(props, async () => {
-  await update()
-})
+  await update();
+});
+
 const img = computed(() => {
-  return `data:image/svg+xml;base64, ${btoa(svg.value)}`
-})
+  return `data:image/svg+xml;base64, ${btoa(svg.value)}`;
+});
 </script>
 
 <style>
@@ -51,7 +55,7 @@ const img = computed(() => {
   width: 100%;
 }
 
-#img {
+img {
   height: 100%;
   object-fit: scale-down;
 }
