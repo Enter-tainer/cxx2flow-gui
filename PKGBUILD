@@ -2,7 +2,7 @@
 
 pkgname=cxx2flow-gui-bin
 _pkgname=cxx2flow-gui
-pkgver=0.1.5
+pkgver=0.1.6
 pkgrel=1
 pkgdesc="GUI for cxx2flow."
 arch=('x86_64')
