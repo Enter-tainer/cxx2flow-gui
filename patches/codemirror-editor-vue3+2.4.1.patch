@@ -1,0 +1,17 @@
+diff --git a/node_modules/codemirror-editor-vue3/package.json b/node_modules/codemirror-editor-vue3/package.json
+index a40bbd4..3822513 100644
+--- a/node_modules/codemirror-editor-vue3/package.json
++++ b/node_modules/codemirror-editor-vue3/package.json
+@@ -10,12 +10,6 @@
+   "types": "./dist/packages/index.d.ts",
+   "main": "./dist/codemirror-editor-vue3.umd.cjs",
+   "module": "./dist/codemirror-editor-vue3.js",
+-  "exports": {
+-    ".": {
+-      "import": "./dist/codemirror-editor-vue3.js",
+-      "require": "./dist/codemirror-editor-vue3.umd.cjs"
+-    }
+-  },
+   "private": false,
+   "author": {
+     "name": "RennCheung",

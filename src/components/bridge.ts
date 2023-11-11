@@ -13,6 +13,9 @@ const generateGraphviz = async (code: string): Promise<string> => {
 const saveSVG = async (svg: string): Promise<void> => {
   try {
     const path = await save({ filters: [{ extensions: ["svg"], name: "SVG Files" }], title: "Save your SVG file" });
+    if (path === null) {
+      throw new Error("No path selected");
+    }
     await writeFile({
       path,
       contents: svg

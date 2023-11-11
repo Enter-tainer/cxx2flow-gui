@@ -28,7 +28,7 @@ int main() {
 );
 const dotCode: Ref<string> = ref("");
 const errorMessage: Ref<string> = ref("");
-const hasError: Ref<Boolean> = ref(false);
+const hasError: Ref<boolean> = ref(false);
 const update = async () => {
   try {
     dotCode.value = await generateGraphviz(code.value);
